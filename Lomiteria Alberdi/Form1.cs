@@ -16,7 +16,7 @@ namespace Lomiteria_Alberdi
         private Producto[] compra = new Producto[10];
         private int indice = 0;
         string decision;
-        bool volver= false;
+        
         public Form1()
         {
             InitializeComponent();
@@ -95,9 +95,11 @@ namespace Lomiteria_Alberdi
                         break;
                     case "4":
                         OcultarPrincipal();
+                        compra[indice] = new Producto("Papas fritas", 500.00,  "");
+                        mostrarProductos();
                         break;
                     case "9":
-
+                        this.Close();
                         break;
                     default:
                         lblError.Text = "Opción invalida, intentelo nuevamente";
@@ -129,11 +131,11 @@ namespace Lomiteria_Alberdi
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             string descripcion = "Agregados: ";
-            if (checkTomate.Checked) descripcion += "Tomate ";
-            if (checkLechuga.Checked) descripcion += "Lechuga ";
-            if (checkQueso.Checked) descripcion += "Queso ";
-            if (checkJamon.Checked) descripcion += "Jamón ";
-            if (checkHuevo.Checked) descripcion += "Huevo ";
+            if (checkTomate.Checked) descripcion += " Tomate ";
+            if (checkLechuga.Checked) descripcion += " Lechuga ";
+            if (checkQueso.Checked) descripcion += " Queso ";
+            if (checkJamon.Checked) descripcion += " Jamón ";
+            if (checkHuevo.Checked) descripcion += " Huevo ";
 
             switch (decision)
             {
@@ -146,9 +148,7 @@ namespace Lomiteria_Alberdi
                 case "3":
                     compra[indice] = new Producto("Hamburguesa", 1000.00, descripcion);
                     break;
-                case "4":
-                    compra[indice] = new Producto("Papas fritas", 500.00, descripcion = "");
-                    break;
+            
             }
 
             
@@ -164,17 +164,21 @@ namespace Lomiteria_Alberdi
         {
             lblError.Visible = true;
             lblError.Text = "Producto agregado con éxito! " + compra[indice].Nombre + compra[indice].Precio + compra[indice].Descripcion;
-            
+            if (compra.Length > 1)
+            {
+                btnMostrarFinal.Visible = true;
+            }
             indice++;
+            
         } 
 
         private void btvolver_Click(object sender, EventArgs e)
         {
-            //lblError.Visible = false;
-            //MostrarPrincipal();
-            //panel1.Visible=false;
-            //txtEleccion.Text = "";
-            volver = true;
+            lblError.Visible = false;
+            MostrarPrincipal();
+            panel1.Visible=false;
+            txtEleccion.Text = "";
+            
         }
 
 
@@ -182,6 +186,20 @@ namespace Lomiteria_Alberdi
         private void btFinalizar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnMostrarFinal_Click(object sender, EventArgs e)
+        {
+            lblError.Text = "";
+            for (int i = 0; i < compra.Length; i++)
+            {
+                if (compra[i] == null)
+                {
+                    break;
+                }
+                lblError.Text += $"Productos: {compra[i].Nombre} {compra[i].Precio} {compra[i].Descripcion} \n";
+
+            }
         }
     }
 }

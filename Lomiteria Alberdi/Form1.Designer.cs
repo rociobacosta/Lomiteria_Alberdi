@@ -45,6 +45,7 @@
             this.lblmsj = new System.Windows.Forms.Label();
             this.btFinalizar = new System.Windows.Forms.Button();
             this.btvolver = new System.Windows.Forms.Button();
+            this.btnMostrarFinal = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -190,12 +191,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnMostrarFinal);
             this.panel1.Controls.Add(this.lblmsj);
             this.panel1.Controls.Add(this.btFinalizar);
             this.panel1.Controls.Add(this.btvolver);
             this.panel1.Location = new System.Drawing.Point(303, 348);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(412, 100);
+            this.panel1.Size = new System.Drawing.Size(412, 138);
             this.panel1.TabIndex = 17;
             // 
             // lblmsj
@@ -211,7 +213,7 @@
             // 
             this.btFinalizar.Location = new System.Drawing.Point(215, 46);
             this.btFinalizar.Name = "btFinalizar";
-            this.btFinalizar.Size = new System.Drawing.Size(190, 23);
+            this.btFinalizar.Size = new System.Drawing.Size(190, 29);
             this.btFinalizar.TabIndex = 1;
             this.btFinalizar.Text = "Finalizar compra";
             this.btFinalizar.UseVisualStyleBackColor = true;
@@ -221,11 +223,22 @@
             // 
             this.btvolver.Location = new System.Drawing.Point(25, 46);
             this.btvolver.Name = "btvolver";
-            this.btvolver.Size = new System.Drawing.Size(166, 23);
+            this.btvolver.Size = new System.Drawing.Size(166, 29);
             this.btvolver.TabIndex = 0;
             this.btvolver.Text = "Agregar otro producto";
             this.btvolver.UseVisualStyleBackColor = true;
             this.btvolver.Click += new System.EventHandler(this.btvolver_Click);
+            // 
+            // btnMostrarFinal
+            // 
+            this.btnMostrarFinal.Location = new System.Drawing.Point(153, 98);
+            this.btnMostrarFinal.Name = "btnMostrarFinal";
+            this.btnMostrarFinal.Size = new System.Drawing.Size(141, 23);
+            this.btnMostrarFinal.TabIndex = 3;
+            this.btnMostrarFinal.Text = "Mostrar todo";
+            this.btnMostrarFinal.UseVisualStyleBackColor = true;
+            this.btnMostrarFinal.Visible = false;
+            this.btnMostrarFinal.Click += new System.EventHandler(this.btnMostrarFinal_Click);
             // 
             // Form1
             // 
@@ -270,6 +283,7 @@
         private System.Windows.Forms.Button btvolver;
         private System.Windows.Forms.Label lblmsj;
         private System.Windows.Forms.Button btFinalizar;
+        private System.Windows.Forms.Button btnMostrarFinal;
     }
 }
 
